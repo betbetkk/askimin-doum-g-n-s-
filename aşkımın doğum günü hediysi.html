@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>❤️ NİCE YILLARINA AŞKIM ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #b71c1c;
+      color: #fff;
+      padding: 2rem;
+      max-width: 750px;
+      margin: auto;
+    }
+    h1, h2 {
+      color: #ffcdd2;
+    }
+    .promo {
+      background: #c62828;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-left: 5px solid #ffebee;
+      border-radius: 8px;
+    }
+    .question {
+      background: #388e3c;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 2rem;
+    }
+    .answers {
+      margin-top: 1rem;
+    }
+    .answer {
+      background: #1b5e20;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      border-left: 5px solid #66bb6a;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .answer.disabled {
+      pointer-events: none;
+      opacity: 0.6;
+    }
+    .correct {
+      background: #43a047;
+    }
+    .wrong {
+      background: #d32f2f;
+    }
+    .feedback {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+    }
+    .footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #ffeaea;
+      text-align: center;
+    }
+    #startButton {
+      margin-top: 2rem;
+      padding: 1rem;
+      font-size: 1rem;
+      background-color: #e53935;
+      border: none;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .poem {
+      margin-top: 2rem;
+      color: white;
+      font-style: italic;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    .message {
+      font-size: 1.2rem;
+      color: white;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hoş geldin karıcım, biricik aşkım</h1>
+  <p>Bu bilet sana özel. Bu sayfa da öyle. Seni tanıdığım için kendimi çok şanslı hissediyorum. Yorucu bir şubat akşamı 45 dakika seni iyi ki beklemişim. Seni 23 sene beklemişim 45 dakika mı beklemeyecektim? Yoksa senin gibi birinden mahrum kalacaktım... sadece düşüncesi bile kalbimi sıkıştırıyor (kötü anlamda). Senden bahsederken hep yüzüm gülüyor, yanaklarım ağrıyor, seni gördüğümde hep kalbim hızlı atmaya başlıyor, bütün şarkılar bana seni hatırlatıyor. Sadece iyi anlarımda değil sıkıntılı anlarımda da yanımda olduğun için, bundan sonrasında da yanımda olacağının sinyallerini verdiğin için sonsuz teşekkür ederim. Hep ama hep götle don olma dileğiyle iyi ki doğdun birtanem.</p>
+
+  <h2>Sana tek bir hediyem olduğunu düşünmedin herhalde... Aşağıdaki promosyonları biletin arkasına şımarma diye eklemedim. Seni çok seviyorum &lt;3<br>Bir bilet kullanıp diğer bileti kullanana kadar;</h2>
+
+  <div class="promo">• Bir kereliğine yanağımı doyasıya ısırabilirsin (biraz ikna yoluyla bu sayı 3'e 5'e 10'a da çıkabilir).</div>
+  <div class="promo">• Sana ettiğim iltifatlara bir kereliğine teşekkür etmeden karşılık verebilirsin. Bu hakkı kullandıktan sonra "aşkım çok güzelsin. güzelliğinden ölücem, komaya gireceğim. o kadar mükemmelsin ki başka insanlar seni görsün istemiyorum. hayatımda gördüğüm en güzel kadınsın. bu cilven, bu hareketlerin beni öldürüyor. bu.. bu.. bu ne böyle yaa!!! nefesim kesildi. çok fena oldum. kalbim bi hızlı atıyor." gibi fazlasıyla hak ettiğin iltifatlar ettiğimde just teşekkür edip hayatına devam etmek zorundasın.</div>
+  <div class="promo">• Arkadaşlarıma (özellikle Esma Sevin Arar bu kurala aşırı dahildir) bir kereliğine yavşayabilirsin veya yavşamalarına karşılık verebilirsin.</div>
+
+  <h2>Aşkım şimdii geldik ikinci hediyene. Bu hediye öyle ilki gibi kolay olmayacak. Birkaç soru cevaplandırman lazım aşk bahçemin en güzel çiçeği (merak etme zor sorular koymadım)</h2>
+
+  <button id="startButton" onclick="startQuiz()">Bas bakalım <br><span style="font-size: 0.8rem; font-style: italic;">(bas bakalım biber gazı sık bakalım, kaskını çıkar copunu bırak delikanlı kim bakalım)</span></button>
+
+  <div class="question" id="question1" style="display: none;">
+    <p>Buluştuğumuz tarih?</p>
+    <div class="answers">
+      <div class="answer" onclick="checkAnswer(1, 'A')">A) 18 Şubat</div>
+      <div class="answer" onclick="checkAnswer(1, 'B')">B) 21 Şubat</div>
+      <div class="answer" onclick="checkAnswer(1, 'C')">C) 28 Şubat</div>
+    </div>
+  </div>
+
+  <div class="question" id="question2" style="display: none;">
+    <p>İlk eylemimizde kimler vardı?</p>
+    <div class="answers">
+      <div class="answer" onclick="checkAnswer(2, 'A')">A) Malican, Götsu, Oda Beril</div>
+      <div class="answer" onclick="checkAnswer(2, 'B')">B) Götsu, Malican, O da Beril, Elif, Kaan</div>
+      <div class="answer" onclick="checkAnswer(2, 'C')">C) Götsu, Malican, Oda Beril, Semiramis, Elif, Kaan</div>
+    </div>
+  </div>
+
+  <div class="question" id="question3" style="display: none;">
+    <p>Sana yaptığım ilk yemek?</p>
+    <div class="answers">
+      <div class="answer" onclick="checkAnswer(3, 'A')">A) Muzlu krep</div>
+      <div class="answer" onclick="checkAnswer(3, 'B')">B) Lahana yemeği</div>
+      <div class="answer" onclick="checkAnswer(3, 'C')">C) Makarna</div>
+    </div>
+  </div>
+
+  <div class="question" id="question4" style="display: none;">
+    <p>Playlistimizin adı?</p>
+    <div class="answers">
+      <div class="answer" onclick="checkAnswer(4, 'A')">A) lan git başımdan!</div>
+      <div class="answer" onclick="checkAnswer(4, 'B')">B) git başımdan lan!</div>
+      <div class="answer" onclick="checkAnswer(4, 'C')">C) git lan başımdan!</div>
+    </div>
+  </div>
+
+  <div class="question" id="question5" style="display: none;">
+    <p>İstanbulda buluştuğumuz tarih?</p>
+    <div class="answers">
+      <div class="answer" onclick="checkAnswer(5, 'A')">A) 2 Nisan</div>
+      <div class="answer" onclick="checkAnswer(5, 'B')">B) 5 Nisan</div>
+      <div class="answer" onclick="checkAnswer(5, 'C')">C) 3 Nisan</div>
+    </div>
+  </div>
+
+  <div class="feedback" id="feedback"></div>
+
+  <div class="message" id="message" style="display: none;">
+    <p>Tebrik ederim karıcım, testi geçeceğini biliyodum. İlk date'imizden de bildiğin üzere ben arada sırada şiir yazarım. Bazen komiklik olsun diye bazen de ilham geldiğinde. Fark ettim ki benim en büyük ilhamım sensin. Bu şiirim sana;</p>
+  </div>
+
+  <div class="poem" id="poem" style="display: none;">
+    <p><strong>tamam sensin</strong><br><br>
+    uzun ve sıkıcı bir yolculukta<br>
+    radyoda çalan favori şarkım sensin<br>
+    yağmurlu bir sabahın ardından<br>
+    öğlen açan gökkuşağı da sensin<br><br>
+    
+    kabus görüp uyandığımda<br>
+    başucumdaki su sensin<br>
+    yorucu bir günün sonunda<br>
+    eve gelip aldığım duş da sensin<br><br>
+
+    yürüyüş yaparken parkta<br>
+    durup sevdiğim sırnaşık kedi sensin<br>
+    ayın sonuna yaklaştığımda<br>
+    cebimin derinliklerindeki para da sensin<br><br>
+
+    bunaltıcı sıcak yaz günlerinde<br>
+    gölgesinde serinlediğim ağaç sensin<br>
+    heyecanla beklerken doğum günümü<br>
+    aldığım ilk kutlama mesajı da sensin<br><br>
+
+    annem marketten geldiğinde<br>
+    bulmayı umduğum abur cubur sensin<br>
+    kışın gelmesini isterken sabırsızca<br>
+    yağan ilk kar tanesi de sensin<br><br>
+
+    bahçeli bir evim olduğunda<br>
+    açacak ilk çiçek sensin<br>
+    odamda loş bir ışıkta uzanırken<br>
+    huzur veren sessizlik de sensin<br><br>
+
+    eve aç ve yorgun geldiğimde<br>
+    mutfağa sinmiş yemek kokusu sensin<br>
+    tatile gitmeye hazırlanırken<br>
+    valizime koyduğum ilk kıyafet de sensin<br><br>
+
+    nolur git başımdan, benden ne istersin?<br>
+    aslında sen benim için<br>
+    bütün bahsettiklerimden de güzelsin
+    </p>
+  </div>
+
+  <div class="footer">
+    Sonsuz aşkla kodlandı. <br/>
+    Betül Kahraman (CEO of BOob Affairs ve Sude'nin en büyük hayranı)
+  </div>
+
+  <script>
+    const correctAnswers = {
+      1: 'C',
+      2: 'B',
+      3: 'A',
+      4: 'C',
+      5: 'C'
+    };
+
+    function startQuiz() {
+      document.getElementById('startButton').style.display = 'none';
+      document.getElementById('question1').style.display = 'block';
+    }
+
+    function checkAnswer(questionNumber, selectedAnswer) {
+      const feedback = document.getElementById('feedback');
+      const question = document.getElementById(`question${questionNumber}`);
+      const allAnswers = question.querySelectorAll('.answer');
+
+      if (selectedAnswer === correctAnswers[questionNumber]) {
+        feedback.textContent = 'aşkım benim bee helal olsun, muck';
+        feedback.style.color = 'lightgreen';
+        
+        // Tıklanabilirliği kapat
+        allAnswers.forEach(answer => answer.classList.add('disabled'));
+        
+        // Sonraki soruya geç
+        setTimeout(() => showNextQuestion(questionNumber), 1000);
+      } else {
+        feedback.textContent = 'ayıp... bilmeni beklerdim...';
+        feedback.style.color = 'orange';
+      }
+    }
+
+    function showNextQuestion(currentQuestionNumber) {
+      const nextQuestionNumber = currentQuestionNumber + 1;
+      const nextQuestion = document.getElementById(`question${nextQuestionNumber}`);
+      if (nextQuestion) {
+        nextQuestion.style.display = 'block';
+      } else {
+        document.getElementById('message').style.display = 'block';
+        document.getElementById('poem').style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>
